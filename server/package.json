@@ -1,0 +1,21 @@
+{
+  "name": "@hookrush/server",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "bot": "tsx scripts/bot.ts"
+  },
+  "dependencies": {
+    "@colyseus/schema": "^2.0.36",
+    "@hookrush/shared": "*",
+    "colyseus": "^0.15.17"
+  },
+  "devDependencies": {
+    "colyseus.js": "^0.15.26",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}

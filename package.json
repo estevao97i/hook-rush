@@ -1,0 +1,12 @@
+{
+  "name": "hook-rush",
+  "private": true,
+  "version": "0.2.0",
+  "workspaces": ["shared", "server", "client"],
+  "scripts": {
+    "dev": "npm run dev -w client",
+    "dev:server": "npm run dev -w server",
+    "build": "npm run typecheck -w shared && npm run typecheck -w server && npm run build -w client",
+    "bot": "npm run bot -w server"
+  }
+}

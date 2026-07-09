@@ -1,0 +1,20 @@
+{
+  "name": "@hookrush/client",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hookrush/shared": "*",
+    "colyseus.js": "^0.15.26",
+    "phaser": "^3.87.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vite": "^5.4.8"
+  }
+}
