@@ -89,6 +89,11 @@ export function stepPlayer(p: PlayerCore, bits: number, map: MapModel, ev: SimEv
     p.buffer = 0;
     p.jumping = true;
     p.cutDone = false;
+    // moveY só zera `grounded` quando dy>=0 (caindo/nivelado); um pulo sobe
+    // (dy<0), então sem isto `grounded` fica preso em true até o ápice —
+    // reabastecendo o coyote a cada tick e permitindo pulo infinito se o
+    // jogador martelar o pulo antes de atingir o ápice.
+    p.grounded = false;
     ev.push({ type: 'jump', playerId: p.id, x: p.x, y: p.y });
   }
   if (p.jumping && !p.cutDone && !jumpHeld && p.vy < -120) {
@@ -167,10 +172,12 @@ export function stepPlayer(p: PlayerCore, bits: number, map: MapModel, ev: SimEv
   p.distance = Math.max(p.distance, (p.x - p.startX) / G.PPM);
 }
 
-/** Solta a corda mantendo EXATAMENTE a velocidade tangencial acumulada. */
+/** Solta a corda: um arco bem soltado (empurrando pra frente, sem subir mais)
+ *  ganha um impulso extra de velocidade — recompensa o "arqueamento" bom. */
 export function releaseHook(p: PlayerCore, ev: SimEvent[]): void {
   if (p.hook.phase !== HookPhase.Attached) return;
-  const good = p.vy < 40 && p.vx > 60; // só para o feedback sonoro
+  const good = p.vy < 40 && p.vx > 60;
+  if (good) p.vx *= G.SWING_RELEASE_BOOST;
   hookDetach(p.hook);
   p.jumping = true;
   p.cutDone = true;

@@ -36,8 +36,8 @@ export const GRAVITY_RISE_MULT = 0.82; // sobe mais leve
 export const GRAVITY_FALL_MULT = 1.22; // desce mais pesado
 
 // ---- Momentum (estilo SpeedRunners) ----
-export const MOVE_ACCELERATION = 900; // aceleração no chão (px/s²)
-export const AIR_ACCELERATION = 380; // aceleração no ar (menor)
+export const MOVE_ACCELERATION = 1300; // aceleração no chão (px/s²)
+export const AIR_ACCELERATION = 520; // aceleração no ar (menor)
 export const GROUND_FRICTION = 340; // atrito acima da velocidade-alvo
 export const CROUCH_ACCEL_MULT = 0.4;
 export const STUN_ACCEL = 0.35;
@@ -45,8 +45,8 @@ export const STUN_ACCEL = 0.35;
 // ---- Slide ----
 export const SLIDE_FRICTION = 90; // atrito reduzido durante o slide
 export const SLIDE_DURATION_MIN = 0.35;
-export const SLIDE_DURATION_MAX = 1.6;
-export const SLIDE_DUR_PER_SPEED = 0.45; // s por múltiplo de BASE_SPEED
+export const SLIDE_DURATION_MAX = 2.2;
+export const SLIDE_DUR_PER_SPEED = 0.7; // s por múltiplo de BASE_SPEED
 
 // ---- Hitbox ----
 export const BODY_W = 26;
@@ -62,6 +62,7 @@ export const HOOK_RETRACT_SPEED = 3900;
 export const ROPE_MIN = 90;
 export const ROPE_MAX = 400; // comprimento fixo após conectar
 export const ROPE_DAMPING = 0.9995; // amortecimento tangencial por sub-passo
+export const SWING_RELEASE_BOOST = 1.18; // impulso ao soltar num arco bom (empurrando pra frente)
 
 // ---- Parede da morte ----
 export const WALL_START_DISTANCE = 30 * PPM;
