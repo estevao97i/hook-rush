@@ -7,7 +7,18 @@
       "Bash(graphify query *)",
       "Bash(graphify explain *)",
       "Bash(graphify path *)",
-      "Bash(rtk tsc *)"
+      "Bash(rtk tsc *)",
+      "Skill(run)",
+      "Bash(rtk read *)",
+      "Bash(rtk npm *)",
+      "Bash(tee /tmp/vite-hookrush.log)",
+      "Read(//tmp/**)",
+      "Bash(rtk curl *)",
+      "Bash(npm root *)",
+      "Bash(find / -maxdepth 6 -iname \"playwright\" -type d)",
+      "Bash(rtk playwright *)",
+      "Bash(kill 32840)",
+      "Bash(rtk find *)"
     ]
   }
 }
