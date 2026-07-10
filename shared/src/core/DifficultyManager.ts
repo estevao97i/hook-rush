@@ -7,9 +7,11 @@ import { RNG } from './rng';
  * e cliente geram exatamente o mesmo mapa.
  */
 export class DifficultyManager {
-  /** Tier 0..1 — satura por volta de ~1800 m. */
+  /** Tier 0..1 — satura por volta de ~2850 m (janela longa: a parede/velocidade
+   *  já escalam sem teto, então os padrões precisam continuar endurecendo por
+   *  boa parte da corrida em vez de estabilizar cedo). */
   tier(distM: number): number {
-    return Math.min(1, 1 - Math.exp(-Math.max(0, distM) / 600));
+    return Math.min(1, 1 - Math.exp(-Math.max(0, distM) / 950));
   }
 
   /** Distância de descanso (px) entre padrões. */
@@ -26,7 +28,7 @@ export class DifficultyManager {
       ['doubleWall', 0.4 + 2 * t],
       ['pillars', 0.3 + 2.2 * t],
       ['steps', 1 + t],
-      ['hookGap', 0.7 + 2.3 * t],
+      ['hookGap', 0.5 + 3.5 * t],
     ]);
   }
 

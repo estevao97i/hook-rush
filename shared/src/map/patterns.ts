@@ -159,12 +159,19 @@ function steps(_t: number, rng: RNG): PatternDef {
   };
 }
 
+/** Vão 100% sem chão — só as âncoras amarelas sustentam a travessia.
+ *  Em tiers altos encadeia mais de uma âncora (swing → solta → swing de novo),
+ *  cada uma com seu próprio aviso de gancho para a IA/replay reagirem. */
 function hookGap(t: number, rng: RNG): PatternDef {
-  const gw = Math.min(rng.range(7.5, 10.5 + 5 * t) * PPM, 12.5 * PPM);
+  const gw = Math.min(rng.range(7.5, 11 + 9 * t) * PPM, 18 * PPM);
   const n = Math.max(1, Math.round(gw / (5.5 * PPM)));
+  const seg = gw / n;
   const anchors: AnchorDef[] = [];
+  const actions: ActionDef[] = [{ x: -12, kind: 'jump', hold: 0.22, lead: 0.03 }];
   for (let i = 0; i < n; i++) {
-    anchors.push({ x: (gw * (i + 0.5)) / n, y: -(225 + rng.range(0, 45)) });
+    const ax = seg * (i + 0.5);
+    anchors.push({ x: ax, y: -(225 + rng.range(0, 45)) });
+    actions.push({ x: ax - seg * 0.4, kind: 'hook', lead: 0.02 + HOOK_TRAVEL_TIME });
   }
   return {
     type: 'hookGap',
@@ -172,10 +179,7 @@ function hookGap(t: number, rng: RNG): PatternDef {
     blocks: [],
     anchors,
     gaps: [[0, gw]],
-    actions: [
-      { x: -12, kind: 'jump', hold: 0.22, lead: 0.03 },
-      { x: gw * 0.1, kind: 'hook', lead: 0.02 + HOOK_TRAVEL_TIME },
-    ],
+    actions,
   };
 }
 

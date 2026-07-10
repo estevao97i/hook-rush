@@ -21,7 +21,13 @@
       "Bash(rtk find *)",
       "Bash(gh api *)",
       "Bash(rtk git *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(gh auth *)",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://api.github.com/repos/estevao97i/hook-rush/pages/deployments\" -o /tmp/pdep.json)",
+      "Bash(rtk npx *)",
+      "Bash(../node_modules/.bin/tsx *)",
+      "Bash(rm -rf /Users/estevaocordova/Documents/projetos/hook-rush/shared/scratch)"
     ]
   }
 }
