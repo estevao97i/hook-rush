@@ -18,7 +18,10 @@
       "Bash(find / -maxdepth 6 -iname \"playwright\" -type d)",
       "Bash(rtk playwright *)",
       "Bash(kill 32840)",
-      "Bash(rtk find *)"
+      "Bash(rtk find *)",
+      "Bash(gh api *)",
+      "Bash(rtk git *)",
+      "Bash(git checkout *)"
     ]
   }
 }
